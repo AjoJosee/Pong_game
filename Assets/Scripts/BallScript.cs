@@ -22,7 +22,7 @@ public class BallScript : MonoBehaviour
 
     private void Update()
     {
-        lastVelocity = ballRb.velocity;
+        lastVelocity = ballRb.linearVelocity;
 
         // Gradually increase speed up to the maximum
         if (currentSpeed < maxSpeed)
@@ -31,7 +31,7 @@ public class BallScript : MonoBehaviour
             currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
             // Apply the new speed while maintaining direction
-            ballRb.velocity = ballRb.velocity.normalized * currentSpeed;
+            ballRb.linearVelocity = ballRb.linearVelocity.normalized * currentSpeed;
         }
     }
 
@@ -60,7 +60,7 @@ public class BallScript : MonoBehaviour
         }
 
         // Apply current speed to the new direction
-        ballRb.velocity = direction * currentSpeed;
+        ballRb.linearVelocity = direction * currentSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -95,7 +95,7 @@ public class BallScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
-        ballRb.velocity = direction * currentSpeed;
+        ballRb.linearVelocity = direction * currentSpeed;
     }
 }
 
