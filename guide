@@ -1,0 +1,5 @@
+This is a simple pong game. It is player vs player. The player who gets 5 points first wins. 
+
+Controls
+*player 1: W (UP), S (DOWN)
+*player 2: UP_ARROW, DOWN_ARROW
